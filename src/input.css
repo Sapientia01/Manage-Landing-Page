@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.test {
+  border: 2px solid red;
+}
+
+body {
+  background-image: url("../images/bg-tablet-pattern.svg");
+  background-repeat: no-repeat;
+  background-size: 800px;
+  background-position: 90% -25%;
+}
+
+@media (max-width: 768px) {
+  body {
+    background-position: 50px -50px;
+    background-size: 550px;
+  }
+}
+
+.humbarger {
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+  width: 24px;
+  height: 24px;
+  position: relative;
+}
+
+.humbarger-top,
+.humbarger-middle,
+.humbarger-bottom {
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  top: 0;
+  left: 0;
+  background-color: black;
+  transform: rotate(0);
+  transition: all 0.3s ease-in-out;
+}
+
+.humbarger-middle {
+  transform: translateY(7px);
+}
+.humbarger-bottom {
+  transform: translateY(14px);
+}
+
+.open {
+  transform: rotate(90deg);
+  transform: translateY(0);
+}
+
+.open .humbarger-top {
+  transform: rotate(45deg) translateY(6px) translate(6px);
+}
+.open .humbarger-middle {
+  display: none;
+}
+
+.open .humbarger-bottom {
+  transform: rotate(-45deg) translateY(6px) translate(-6px);
+}
